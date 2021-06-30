@@ -1,0 +1,30 @@
+PODS:
+  - Charts (3.6.0):
+    - Charts/Core (= 3.6.0)
+  - Charts/Core (3.6.0)
+  - NCMB (1.2.0)
+
+DEPENDENCIES:
+  - Charts
+  - NCMB (from `https://github.com/NIFCLOUD-mbaas/ncmb_swift.git`)
+
+SPEC REPOS:
+  trunk:
+    - Charts
+
+EXTERNAL SOURCES:
+  NCMB:
+    :git: https://github.com/NIFCLOUD-mbaas/ncmb_swift.git
+
+CHECKOUT OPTIONS:
+  NCMB:
+    :commit: 921f40bea563633f8cbb0d02432452cd7f0334a2
+    :git: https://github.com/NIFCLOUD-mbaas/ncmb_swift.git
+
+SPEC CHECKSUMS:
+  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
+  NCMB: 1923105236f268cb9f001be548871c7f6996821b
+
+PODFILE CHECKSUM: 1aa140e9a3402156f7f4b139418a6b167ef65494
+
+COCOAPODS: 1.10.1
