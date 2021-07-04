@@ -83,7 +83,7 @@
         <!--bar-->
         <scene sceneID="oPQ-i2-vVc">
             <objects>
-                <viewController id="Hlp-xj-rmR" customClass="ViewController" customModule="graph" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Hlp-xj-rmR" userLabel="bar" customClass="ViewController" customModule="graph" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="COA-rP-nyn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,7 +99,7 @@
         <!--rank-->
         <scene sceneID="yAr-8U-GAl">
             <objects>
-                <viewController id="nv2-yc-8Q2" customClass="thirdViewContoroller" customModule="graph" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nv2-yc-8Q2" customClass="thirdViewController" customModule="graph" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pDf-4A-bKV" customClass="thirdViewController">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,10 +127,10 @@
             </objects>
             <point key="canvasLocation" x="-1307" y="1491"/>
         </scene>
-        <!--line-->
+        <!--time-->
         <scene sceneID="1Tw-7q-ONc">
             <objects>
-                <viewController id="43y-FO-ap3" userLabel="line" customClass="SecondViewController" customModule="graph" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="43y-FO-ap3" userLabel="time" customClass="SecondViewController" customModule="graph" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e8L-hW-c5y" customClass="ViewContoroller">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

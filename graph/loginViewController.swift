@@ -22,7 +22,7 @@ class loginViewController: UIViewController{
     // ユーザー名・パスワードを設定
         user.userName = userEmailTextfield.text
         user.password = PasswordTextfield.text
-
+        
     // ユーザーの新規登録
         user.signUpInBackground(callback: { result in
             switch result {
@@ -43,6 +43,12 @@ class loginViewController: UIViewController{
                 case .success:
                     // ログインに成功した場合の処理
                     print("ログインに成功しました")
+                    if let user = NCMBUser.currentUser {
+                        print("ログイン中のユーザー: \(user.userName!)")
+                    } else {
+                        print("未ログインまたは取得に失敗")
+                    }
+
                 case let .failure(error):
                     // ログインに失敗した場合の処理
                     print("ログインに失敗しました: \(error)")
