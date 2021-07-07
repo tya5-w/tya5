@@ -15,6 +15,8 @@ var minute = 0
 var second = 0
 var empArray = [Int]()
 var save = [Int]()
+var userDefaults = UserDefaults.standard
+
 class SecondViewController: UIViewController {
  
     @IBOutlet var timerMinute: UILabel!
@@ -26,7 +28,14 @@ class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+        if userDefaults.array(forKey: "udScore") != nil{
+            print("udあり")
+        }else{
+            let score: [Int] = []
+            // 配列の保存
+            userDefaults.set(score, forKey: "udScore")
+            print("作成しました")
+        }
         // 画面背景色を設定してみました
         self.view.backgroundColor = UIColor(red:0.9,green:1.0,blue:0.9,alpha:1.0)
     }
@@ -56,19 +65,65 @@ class SecondViewController: UIViewController {
             timerSecond.text = "00"
             timerMSec.text = "00"
             
+        
+            var getScore:[Int] = userDefaults.array(forKey: "udScore") as! [Int]
+            let addScore: Int = minute*60+second
+            getScore.append(addScore)
+            print(getScore)
+            userDefaults.set(getScore, forKey: "udScore")
+            
+            
+            
+            
+            
+            
             // testクラスのNCMBObjectを作成
             
             let object : NCMBObject = NCMBObject(className: "TotalScore")
-            let object_1 : NCMBObject = NCMBObject(className: "Score")
             let user = NCMBUser.currentUser 
+            
             //名前とスコアをセット
             
             
-            object["Name"] = user?.userName!
-            object["Score"] = [0]
-            if  let score : [Int] = object["Score"]  {
-                print(score)
-            }
+            
+            
+            
+            //TotalScoreクラスを検索するNCMBQueryを作成
+            var query : NCMBQuery<NCMBObject> = NCMBQuery.getQuery(className: "TotalScore")
+            //NameがuserNameと一致するデータを検索する条件を設定
+            query.where(field: "Name", equalTo: user?.userName!)
+            // 検索を行う
+            query.findInBackground(callback: { result in
+                switch result {
+                    case let .success(array):
+                        print("検索取得に成功しました 件数: \(array)")
+                        
+                        
+                    case let .failure(error):
+                        print("検索取得に失敗しました: \(error)")
+                        
+                        object["Score"] = minute*60+second
+                        
+                }
+                //データストアに登録
+                object.saveInBackground(callback: { result in
+                    switch result {
+                    case .success:
+                        // 保存に成功した場合の処理
+                        print("初回保存に成功しました")
+                    case let .failure(error):
+                        // 保存に失敗した場合の処理
+                        print("初回保存に失敗しました: \(error)")
+                    }
+                })
+            })
+            
+            
+            
+        
+            
+        
+            
     //        object["Score"] = NCMBIncrementOperator(amount: minute*60+second)
    
     //       var intArray = [Int]()
@@ -80,54 +135,11 @@ class SecondViewController: UIViewController {
     //         print (save)
             
             
-            object_1["Name"] = user?.userName!
-            object_1["Score"] = minute*60+second
-            if  let score : [Int] = object_1["Score"]  {
-                print(score)
-            }
+
 
             
             
-            object_1.saveInBackground(callback: { result in
-                switch result {
-                case .success:
-                    // 保存に成功した場合の処理
-                    print("保存に成功しました")
-                    print(user?.userName! ?? <#default value#>  )
-                case let .failure(error):
-                    // 保存に失敗した場合の処理
-                    print("保存に失敗しました: \(error)")
-                }
-            })
-            
-            //TotalScoreクラスを検索するNCMBQueryを作成
-            var query : NCMBQuery<NCMBObject> = NCMBQuery.getQuery(className: "TotalScore")
-            //NameがuserNameと一致するデータを検索する条件を設定
-            query.where(field: "Name", equalTo: user?.userName! ?? <#default value#>)
 
-            // 検索を行う
-            query.findInBackground(callback: { result in
-                switch result {
-                    case let .success(array):
-                        print("検索取得に成功しました 件数: \(array.count)")
-                    case let .failure(error):
-                        print("検索取得に失敗しました: \(error)")
-                        
-                        object["Score"] = minute*60+second
-                        //データストアに登録
-                        object.saveInBackground(callback: { result in
-                            switch result {
-                            case .success:
-                                // 保存に成功した場合の処理
-                                print("初回保存に成功しました")
-                            case let .failure(error):
-                                // 保存に失敗した場合の処理
-                                print("初回保存に失敗しました: \(error)")
-                            }
-                        })
-                        
-                }
-            })
         }
     }
         
@@ -153,6 +165,7 @@ class SecondViewController: UIViewController {
         timerMSec.text = sMsec
         
     }
+
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)

@@ -14,6 +14,9 @@ class thirdViewController: UIViewController{
         } else {
             Swift.print("未ログインまたは取得に失敗")
         }
+        
+        
+        
 
     
 

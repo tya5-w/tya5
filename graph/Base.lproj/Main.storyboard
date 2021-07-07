@@ -39,7 +39,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Hlp-xj-rmR" kind="relationship" relationship="rootViewController" id="EDq-du-fpt"/>
+                        <segue destination="Y4C-ln-Y2J" kind="relationship" relationship="rootViewController" id="hTk-H4-HGk"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TeP-HL-Tkh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -79,22 +79,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KVw-JV-ETJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1417" y="750"/>
-        </scene>
-        <!--bar-->
-        <scene sceneID="oPQ-i2-vVc">
-            <objects>
-                <viewController id="Hlp-xj-rmR" userLabel="bar" customClass="ViewController" customModule="graph" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="COA-rP-nyn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="P3M-bh-0YB"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="bar" id="oGL-15-GOh"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qev-8v-0cR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2794" y="1491"/>
         </scene>
         <!--rank-->
         <scene sceneID="yAr-8U-GAl">
@@ -185,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JaR-7x-zrA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2075.36231884058" y="1490.625"/>
+            <point key="canvasLocation" x="-2075" y="1491"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="ZrD-Yx-59k">
@@ -272,6 +256,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N4U-Gr-dBc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2075" y="-1684"/>
+        </scene>
+        <!--bar-->
+        <scene sceneID="Km0-IT-m8Z">
+            <objects>
+                <viewController id="Y4C-ln-Y2J" userLabel="bar" customClass="ViewController" customModule="graph" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qPv-kQ-62B" customClass="BarChartView" customModule="Charts">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="BmC-sV-q2m"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="bar" id="UWf-7J-szl"/>
+                    <connections>
+                        <outlet property="barChartView" destination="qPv-kQ-62B" id="QkB-Fq-Cfw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kmf-se-y6I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2794" y="1491"/>
         </scene>
     </scenes>
     <resources>
